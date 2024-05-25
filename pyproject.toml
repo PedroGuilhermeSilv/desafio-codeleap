@@ -33,7 +33,7 @@ dev = [
 src = ["src"]
 line-length = 88
 
-exclude = ["*/migrations/*"]
+
 
 select = [
     "F",   # Pyflakes
@@ -64,4 +64,4 @@ select = [
      "PL",  # Pylint
 ] 
 
-ignore = ["EM101"]
+ignore = ["EM101", "EXE002"]
