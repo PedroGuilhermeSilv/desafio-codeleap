@@ -1,5 +1,5 @@
-from src.core.careers.domain.careers import Career
 import pytest
+from src.core.careers.domain.careers import Career
 
 
 class TestCreateCarrers:
@@ -50,14 +50,20 @@ class TestEquality:
     def test_id_equals(self):
         carrers = Career(id=1, username="Username", title="Title", content="Content")
         other_carrers = Career(
-            id=1, username="Username", title="Title", content="Content"
+            id=1,
+            username="Username",
+            title="Title",
+            content="Content",
         )
         assert carrers == other_carrers
 
     def test_id_not_equals(self):
         carrers = Career(id=1, username="Username", title="Title", content="Content")
         other_carrers = Career(
-            id=2, username="Username", title="Title", content="Content"
+            id=2,
+            username="Username",
+            title="Title",
+            content="Content",
         )
         assert carrers != other_carrers
 

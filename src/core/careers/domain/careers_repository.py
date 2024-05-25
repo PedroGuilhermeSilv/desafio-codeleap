@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-
 from src.core.careers.domain.careers import Career
 
 
@@ -18,7 +17,7 @@ class CareersRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def update(self, Careers) -> None:
+    def update(self, careers) -> None:
         raise NotImplementedError
 
     @abstractmethod

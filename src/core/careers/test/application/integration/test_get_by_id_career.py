@@ -1,11 +1,11 @@
+import pytest
+from src.core.careers.application.exceptions import CareerNotFoundError
 from src.core.careers.application.use_cases.get_by_id_career import (
     CareerGetByIdRequest,
     GetByIdCareer,
 )
-from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
-from src.core.careers.application.exceptions import CareerNotFoundError
 from src.core.careers.domain.careers import Career
-import pytest
+from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
 
 
 class TestGetByIdCareer:
@@ -19,8 +19,8 @@ class TestGetByIdCareer:
     def test_can_get_by_id_a_career(self):
         repository = InMemoryCareersRepository(
             careers=[
-                Career(id=1, username="username", title="title", content="content")
-            ]
+                Career(id=1, username="username", title="title", content="content"),
+            ],
         )
         use_case = GetByIdCareer(repository)
         request = CareerGetByIdRequest(id=1)

@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 
+MAX_LENGTH = 50
+
 
 @dataclass
 class Career:
@@ -14,7 +16,7 @@ class Career:
         self.validate()
 
     def validate(self):
-        if len(self.username) > 50:
+        if len(self.username) > MAX_LENGTH:
             raise ValueError("Username is too long")
         if not self.username:
             raise ValueError("Username is required")
@@ -24,12 +26,11 @@ class Career:
             raise ValueError("Content is required")
 
     def __eq__(self, other):
-        """Initially this class only checks if the instances are at the same memory address.
-        We need to compare the id."""
+        """Initially this class only checks if the instances are at
+        the same memory address. We need to compare the id."""
         if not isinstance(other, Career):
             raise ValueError("Comparison between different classes")
-        if self.id == other.id:
-            return True
+        return self.id == other.id
 
     def update(self, content: str, title: str):
         self.content = content

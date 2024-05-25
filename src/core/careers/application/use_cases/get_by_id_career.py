@@ -1,7 +1,8 @@
 from dataclasses import dataclass
-from src.core.careers.domain.careers_repository import CareersRepository
-from src.core.careers.application.exceptions import CareerNotFoundError
 from datetime import datetime
+
+from src.core.careers.application.exceptions import CareerNotFoundError
+from src.core.careers.domain.careers_repository import CareersRepository
 
 
 @dataclass
@@ -25,7 +26,8 @@ class GetByIdCareer:
     def execute(self, request: CareerGetByIdRequest) -> CareerGetByIdResponse:
         career = self.repository.get_by_id(request.id)
         if not career:
-            raise CareerNotFoundError(f"Career with id {request.id} not found")
+            error = f"Career with id {request.id} not found"
+            raise CareerNotFoundError(error)
         return CareerGetByIdResponse(
             id=career.id,
             username=career.username,

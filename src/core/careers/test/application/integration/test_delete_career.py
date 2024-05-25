@@ -1,11 +1,11 @@
+import pytest
+from src.core.careers.application.exceptions import CareerNotFoundError
 from src.core.careers.application.use_cases.delete_career import (
     CareerDeleteRequest,
     DeleteCareer,
 )
-from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
-from src.core.careers.application.exceptions import CareerNotFoundError
 from src.core.careers.domain.careers import Career
-import pytest
+from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
 
 
 class TestDeleteCareer:
@@ -19,8 +19,8 @@ class TestDeleteCareer:
     def test_can_delete_a_career(self):
         repository = InMemoryCareersRepository(
             careers=[
-                Career(id=1, username="username", title="title", content="content")
-            ]
+                Career(id=1, username="username", title="title", content="content"),
+            ],
         )
         use_case = DeleteCareer(repository)
         request = CareerDeleteRequest(id=1)

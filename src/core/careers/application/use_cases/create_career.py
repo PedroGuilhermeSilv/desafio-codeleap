@@ -1,7 +1,8 @@
 from dataclasses import dataclass
+
+from src.core.careers.application.exceptions import InvalidCareerDataErrorError
 from src.core.careers.domain.careers import Career
 from src.core.careers.domain.careers_repository import CareersRepository
-from src.core.careers.application.exceptions import InvalidCareerData
 
 
 @dataclass
@@ -30,5 +31,5 @@ class CreateCareer:
             )
             self.repository.save(career)
         except ValueError as err:
-            raise InvalidCareerData(str(err)) from err
+            raise InvalidCareerDataErrorError(str(err)) from err
         return CareerCreateResponse(id=career.id)

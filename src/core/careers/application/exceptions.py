@@ -1,4 +1,4 @@
-class InvalidCareerData(Exception):
+class InvalidCareerDataErrorError(Exception):
     pass
 
 

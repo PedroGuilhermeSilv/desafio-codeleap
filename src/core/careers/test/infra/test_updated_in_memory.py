@@ -8,7 +8,10 @@ class TestUpdate:
         career = Career(id=1, username="username", title="title", content="content")
         repository.save(career)
         career = Career(
-            id=1, username="username", title="new title", content="new content"
+            id=1,
+            username="username",
+            title="new title",
+            content="new content",
         )
         repository.update(career)
 

@@ -1,7 +1,8 @@
 from dataclasses import dataclass
+
 from src.core.careers.application.exceptions import (
-    InvalidCareerData,
     CareerNotFoundError,
+    InvalidCareerDataErrorError,
 )
 
 
@@ -18,7 +19,8 @@ class UpdatedCareer:
     def execute(self, request: CareerUpdatedRequest, id: int) -> None:
         caree = self.repository.get_by_id(id)
         if not caree:
-            raise CareerNotFoundError(f"Career with id {id} not found")
+            error = f"Career with id {id} not found"
+            raise CareerNotFoundError(error)
         try:
             caree.update(
                 title=request.title,
@@ -26,4 +28,4 @@ class UpdatedCareer:
             )
             self.repository.save(caree)
         except ValueError as err:
-            raise InvalidCareerData(str(err)) from err
+            raise InvalidCareerDataErrorError(str(err)) from err

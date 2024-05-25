@@ -1,22 +1,22 @@
+import pytest
+from src.core.careers.application.exceptions import (
+    CareerNotFoundError,
+    InvalidCareerDataErrorError,
+)
 from src.core.careers.application.use_cases.updated_career import (
     CareerUpdatedRequest,
     UpdatedCareer,
 )
-from src.core.careers.application.exceptions import (
-    InvalidCareerData,
-    CareerNotFoundError,
-)
-from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
 from src.core.careers.domain.careers import Career
-import pytest
+from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
 
 
 class TestUpdatedCareer:
     def test_can_update_a_career(self):
         repository = InMemoryCareersRepository(
             careers=[
-                Career(id=1, username="username", title="title", content="content")
-            ]
+                Career(id=1, username="username", title="title", content="content"),
+            ],
         )
         use_case = UpdatedCareer(repository)
         request = CareerUpdatedRequest(title="title updated", content="content updated")
@@ -37,13 +37,13 @@ class TestUpdatedCareer:
     def test_cannot_update_a_career_with_invalid_data(self):
         repository = InMemoryCareersRepository(
             careers=[
-                Career(id=1, username="username", title="title", content="content")
-            ]
+                Career(id=1, username="username", title="title", content="content"),
+            ],
         )
         use_case = UpdatedCareer(repository)
 
         pytest.raises(
-            InvalidCareerData,
+            InvalidCareerDataErrorError,
             use_case.execute,
             CareerUpdatedRequest(title="", content="content updated"),
             1,
@@ -52,13 +52,13 @@ class TestUpdatedCareer:
     def test_cannot_update_a_career_with_invalid_data_2(self):
         repository = InMemoryCareersRepository(
             careers=[
-                Career(id=1, username="username", title="title", content="content")
-            ]
+                Career(id=1, username="username", title="title", content="content"),
+            ],
         )
         use_case = UpdatedCareer(repository)
 
         pytest.raises(
-            InvalidCareerData,
+            InvalidCareerDataErrorError,
             use_case.execute,
             CareerUpdatedRequest(title="title updated", content=""),
             1,

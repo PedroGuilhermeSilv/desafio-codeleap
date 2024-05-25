@@ -1,11 +1,11 @@
+import pytest
+from src.core.careers.application.exceptions import InvalidCareerDataErrorError
 from src.core.careers.application.use_cases.create_career import (
     CareerCreateRequest,
     CareerCreateResponse,
     CreateCareer,
 )
-from src.core.careers.application.exceptions import InvalidCareerData
 from src.core.careers.infra.in_memory_careers import InMemoryCareersRepository
-import pytest
 
 
 class TestCreateCareer:
@@ -13,7 +13,9 @@ class TestCreateCareer:
         repository = InMemoryCareersRepository()
         use_case = CreateCareer(repository)
         request = CareerCreateRequest(
-            username="username", title="title", content="content"
+            username="username",
+            title="title",
+            content="content",
         )
 
         response = use_case.execute(request)
@@ -28,7 +30,7 @@ class TestCreateCareer:
         use_case = CreateCareer(repository)
 
         pytest.raises(
-            InvalidCareerData,
+            InvalidCareerDataErrorError,
             use_case.execute,
             CareerCreateRequest(username="", title="title", content="content"),
         )
@@ -38,7 +40,7 @@ class TestCreateCareer:
         use_case = CreateCareer(repository)
 
         pytest.raises(
-            InvalidCareerData,
+            InvalidCareerDataErrorError,
             use_case.execute,
             CareerCreateRequest(username="username", title="", content="content"),
         )
@@ -48,7 +50,7 @@ class TestCreateCareer:
         use_case = CreateCareer(repository)
 
         pytest.raises(
-            InvalidCareerData,
+            InvalidCareerDataErrorError,
             use_case.execute,
             CareerCreateRequest(username="username", title="title", content=""),
         )
