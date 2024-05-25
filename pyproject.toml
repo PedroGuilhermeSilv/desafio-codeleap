@@ -7,7 +7,6 @@ authors = [
 ]
 dependencies = [
     "pylint>=3.0.3",
-    "flake8>=7.0.0",
 ]
 requires-python = ">=3.11"
 readme = "README.md"

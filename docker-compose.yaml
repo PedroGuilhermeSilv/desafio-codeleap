@@ -3,6 +3,6 @@ version: '3.8 '
 services:
   app:
     build: .
-    container_name: micro-videos-python-app
+    container_name: desafio-python
     volumes:
       - .:/home/python/app
