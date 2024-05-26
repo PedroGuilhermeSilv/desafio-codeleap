@@ -1,18 +1,11 @@
-import os
-
 from ._base import *  # noqa: F403
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB", "my_db"),
-        "USER": os.getenv("POSTGRES_USER", "my_user"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "my_password"),
-        "HOST": os.getenv("POSTGRES_HOST", "db"),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",  # noqa: F405
     },
 }
-
 
 ALLOWED_HOSTS = ["*"]
 
@@ -34,6 +27,14 @@ CORS_ALLOW_HEADERS = [
 ]
 CORS_EXPOSE_HEADERS = ["Set-Cookie"]
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEBUG = False
 
+STATIC_URL = "/static/"
+
+STATIC_ROOT = "src/django_project/static"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
