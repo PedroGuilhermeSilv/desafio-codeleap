@@ -36,5 +36,5 @@ STATIC_URL = "/static/"
 STATIC_ROOT = "src/django_project/static"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "static",  # noqa: F405
 ]
