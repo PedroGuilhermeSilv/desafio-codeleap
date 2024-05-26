@@ -13,7 +13,7 @@ class TestUpdate:
             title="new title",
             content="new content",
         )
-        repository.update(career)
+        repository.update(career, id=1)
 
         assert len(repository.careers) == 1
         assert repository.careers[0] == career

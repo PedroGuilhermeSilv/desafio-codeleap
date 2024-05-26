@@ -4,6 +4,7 @@ from src.core.careers.application.exceptions import (
     CareerNotFoundError,
     InvalidCareerDataErrorError,
 )
+from src.core.careers.domain.careers import Career
 
 
 @dataclass
@@ -22,10 +23,12 @@ class UpdatedCareer:
             error = f"Career with id {id} not found"
             raise CareerNotFoundError(error)
         try:
-            caree.update(
+            Career(
+                id=id,
+                username=caree.username,
                 title=request.title,
                 content=request.content,
             )
-            self.repository.save(caree)
+            self.repository.update(request, id)
         except ValueError as err:
             raise InvalidCareerDataErrorError(str(err)) from err

@@ -15,10 +15,11 @@ class InMemoryCareersRepository(CareersRepository):
     def delete(self, id: int) -> None:
         self.careers.remove(self.get_by_id(id))
 
-    def update(self, career: Career) -> None:
-        if old := self.get_by_id(career.id):
-            self.careers.remove(old)
-            self.careers.append(career)
+    def update(self, career: Career, id: int) -> None:
+        for careers in self.careers:
+            if careers.id == id:
+                careers.title = career.title
+                careers.content = career.content
 
     def count(self) -> int:
         return len(self.careers)

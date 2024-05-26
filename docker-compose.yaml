@@ -1,8 +1,19 @@
-version: '3.8 '
+version: '3.8'
 
 services:
   app:
     build: .
     container_name: desafio-python
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
     volumes:
       - .:/home/python/app
+  db:
+    image: postgres:16
+    container_name: postgres-desafio
+    env_file:
+      - .env
+    volumes:
+      - /var/cache/postgres_data_desafio:/var/lib/postgresql/data

@@ -7,4 +7,4 @@ services:
     volumes:
       - ./.docker/zsh/powerlevel10k/.p10k.zsh:/home/python/.p10k.zsh:delegated
       - ./.docker/zsh/history:/home/python/zsh:delegated
-      - .ssh:/home/python/.ssh
+      - ./.venv:/home/python/.venv:delegated

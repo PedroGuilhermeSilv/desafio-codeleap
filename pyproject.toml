@@ -8,6 +8,11 @@ authors = [
 dependencies = [
     "pylint>=3.0.3",
     "ruff>=0.4.5",
+    "django>=5.0.6",
+    "djangorestframework>=3.15.1",
+    "pytest-django>=4.8.0",
+    "uvicorn>=0.29.0",
+    "psycopg2-binary>=2.9.9",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
@@ -65,3 +70,5 @@ select = [
 ] 
 
 ignore = ["EM101", "EXE002"]
+
+

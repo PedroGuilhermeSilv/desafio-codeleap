@@ -7,11 +7,11 @@
         "source.organizeImports": "explicit",
         "source.fixAll": "explicit"
       },
-    "python.testing.pytestArgs": [
-      "src",
+      "python.testing.pytestArgs": [
+        "src",
     ],
     "python.analysis.extraPaths": [
-      "./src"
+      "src"
     ],
     "editor.tabSize": 4,
     "python.testing.unittestEnabled": false,

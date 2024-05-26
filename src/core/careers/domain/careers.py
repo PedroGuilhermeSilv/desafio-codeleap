@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 
-MAX_LENGTH = 50
+MAX_LENGTH = 225
 
 
 @dataclass

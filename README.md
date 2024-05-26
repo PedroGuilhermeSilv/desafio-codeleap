@@ -58,3 +58,49 @@ A estrutura de dados do item é a seguinte:
 ````json
 {}
 ````
+
+
+
+<h2 id="started">🚀 Getting started</h2>
+
+Here you describe how to run your project locally
+
+<h3>Prerequisites</h3>
+
+Here you list all prerequisites necessary for running your project. For example:
+
+- [Python](https://github.com/)
+- [Docker](https://github.com) Optional
+- [PDM]()
+
+<h3>Cloning</h3>
+
+How to clone my project branch docker
+
+```bash
+git clone https://github.com/PedroGuilhermeSilv/desafio-codeleap
+```
+
+<h3>Config .env variables</h2>
+
+Use the `.env-example` as reference to create your configuration file `.env`.
+If you use ENV as dev it will run with db.sqlite and if you use ENV as prod it will run in postgres
+
+
+```yaml
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=adminpass
+POSTGRES_DB=main
+PGADMIN_DEFAULT_EMAIL="admin@gmail.com"
+PGADMIN_DEFAULT_PASSWORD=admin
+ENV=prod
+```
+
+<h3>Starting</h3>
+
+How to start your project
+
+```bash
+cd cartao-saude-api
+docker compose up
+```

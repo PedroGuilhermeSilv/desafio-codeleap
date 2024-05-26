@@ -17,7 +17,7 @@ class CareersRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def update(self, careers) -> None:
+    def update(self, careers: Career, id: int) -> None:
         raise NotImplementedError
 
     @abstractmethod
