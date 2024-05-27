@@ -98,9 +98,9 @@ ENV=prod
 
 <h3>Starting</h3>
 
-How to start your project
+How to start project
 
 ```bash
-cd cartao-saude-api
+cd desafio-codeleap
 docker compose up
 ```
