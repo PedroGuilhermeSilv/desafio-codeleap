@@ -6,4 +6,4 @@
 __pypackages__
 .pytest_cache
 .env
-
+db.sqlite3
