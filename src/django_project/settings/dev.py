@@ -10,8 +10,6 @@ DATABASES = {
 ALLOWED_HOSTS = ["*"]
 
 
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-
 DEBUG = True
 
 STATIC_URL = "/static/"
