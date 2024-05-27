@@ -1,5 +1,7 @@
-from ._base import *  # noqa: F403
 import os
+
+from ._base import *  # noqa: F403
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
